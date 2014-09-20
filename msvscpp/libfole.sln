@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libfole", "libfole\libfole.vcproj", "{10F855CA-4F78-4C5F-9F73-2FA03C035121}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9DB11F7E-3A08-4647-975E-2259D5485181} = {9DB11F7E-3A08-4647-975E-2259D5485181}
+		{145E2FC0-0580-484A-B20A-B38682325816} = {145E2FC0-0580-484A-B20A-B38682325816}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcstring", "libcstring\libcstring.vcproj", "{9DB11F7E-3A08-4647-975E-2259D5485181}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcerror", "libcerror\libcerror.vcproj", "{145E2FC0-0580-484A-B20A-B38682325816}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9DB11F7E-3A08-4647-975E-2259D5485181} = {9DB11F7E-3A08-4647-975E-2259D5485181}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|Win32 = Release|Win32
+		VSDebug|Win32 = VSDebug|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10F855CA-4F78-4C5F-9F73-2FA03C035121}.Release|Win32.ActiveCfg = Release|Win32
+		{10F855CA-4F78-4C5F-9F73-2FA03C035121}.Release|Win32.Build.0 = Release|Win32
+		{10F855CA-4F78-4C5F-9F73-2FA03C035121}.VSDebug|Win32.ActiveCfg = VSDebug|Win32
+		{10F855CA-4F78-4C5F-9F73-2FA03C035121}.VSDebug|Win32.Build.0 = VSDebug|Win32
+		{9DB11F7E-3A08-4647-975E-2259D5485181}.Release|Win32.ActiveCfg = Release|Win32
+		{9DB11F7E-3A08-4647-975E-2259D5485181}.Release|Win32.Build.0 = Release|Win32
+		{9DB11F7E-3A08-4647-975E-2259D5485181}.VSDebug|Win32.ActiveCfg = VSDebug|Win32
+		{9DB11F7E-3A08-4647-975E-2259D5485181}.VSDebug|Win32.Build.0 = VSDebug|Win32
+		{145E2FC0-0580-484A-B20A-B38682325816}.Release|Win32.ActiveCfg = Release|Win32
+		{145E2FC0-0580-484A-B20A-B38682325816}.Release|Win32.Build.0 = Release|Win32
+		{145E2FC0-0580-484A-B20A-B38682325816}.VSDebug|Win32.ActiveCfg = VSDebug|Win32
+		{145E2FC0-0580-484A-B20A-B38682325816}.VSDebug|Win32.Build.0 = VSDebug|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

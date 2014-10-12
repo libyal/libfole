@@ -40,43 +40,12 @@
 
 /* The version string
  */
-#define LIBFOLE_VERSION_STRING					"@VERSION@"
+#define LIBFOLE_VERSION_STRING				"@VERSION@"
 
 /* The byte order definitions
  */
-#define LIBFOLE_ENDIAN_BIG					_BYTE_STREAM_ENDIAN_BIG
-#define LIBFOLE_ENDIAN_LITTLE					_BYTE_STREAM_ENDIAN_LITTLE
-
-/* The GUID identifier version definitions
- */
-enum LIBFOLE_IDENTIFIER_VERSIONS
-{
-	LIBFOLE_IDENTIFIER_VERSION_TIME_BASED			= 1,
-	LIBFOLE_IDENTIFIER_VERSION_DCE				= 2,
-	LIBFOLE_IDENTIFIER_VERSION_NAME_BASED			= 3,
-	LIBFOLE_IDENTIFIER_VERSION_RANDOM_BASED		= 4
-};
-
-/* The string format definition flags
- */
-enum LIBFOLE_STRING_FORMAT_FLAGS
-{
-	/* Format the using lower case
-	 */
-	LIBFOLE_STRING_FORMAT_FLAG_USE_LOWER_CASE		= 0x00000001UL,
-
-	/* Format the using upper case
-	 */
-	LIBFOLE_STRING_FORMAT_FLAG_USE_UPPER_CASE		= 0x00000002UL,
-
-	/* Format the using mixed case
-	 */
-	LIBFOLE_STRING_FORMAT_FLAG_USE_MIXED_CASE		= 0x00000003UL,
-
-	/* Format the using surrounding braces { GUID }
-	 */
-	LIBFOLE_STRING_FORMAT_FLAG_USE_SURROUNDING_BRACES	= 0x00000004UL
-};
+#define LIBFOLE_ENDIAN_BIG				_BYTE_STREAM_ENDIAN_BIG
+#define LIBFOLE_ENDIAN_LITTLE				_BYTE_STREAM_ENDIAN_LITTLE
 
 #endif
 

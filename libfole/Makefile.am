@@ -15,7 +15,8 @@ libfole_la_SOURCES = \
 	libfole_libcstring.h \
 	libfole_support.c libfole_support.h \
 	libfole_types.h \
-	libfole_unused.h
+	libfole_unused.h \
+	libfole_value_type.c libfole_value_type.h
 
 libfole_la_LIBADD = \
 	@LIBCSTRING_LIBADD@ \

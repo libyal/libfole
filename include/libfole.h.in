@@ -91,201 +91,20 @@ int libfole_error_backtrace_sprint(
      size_t size );
 
 /* -------------------------------------------------------------------------
- * Identifier functions
+ * Value type functions
  * ------------------------------------------------------------------------- */
 
-/* Creates an identifier
- * Make sure the value identifier is referencing, is set to NULL
- * Returns 1 if successful or -1 on error
+/* Retrieves a string containing the value type identifier
  */
 LIBFOLE_EXTERN \
-int libfole_identifier_initialize(
-     libfole_identifier_t **identifier,
-     libfole_error_t **error );
+const char *libfole_value_type_get_identifier(
+             uint32_t value_type );
 
-/* Frees an identifier
- * Returns 1 if successful or -1 on error
+/* Retrieves a string containing the value type description
  */
 LIBFOLE_EXTERN \
-int libfole_identifier_free(
-     libfole_identifier_t **identifier,
-     libfole_error_t **error );
-
-/* Copies the identifier from a byte stream
- * Returns 1 if successful or -1 on error
- */
-LIBFOLE_EXTERN \
-int libfole_identifier_copy_from_byte_stream(
-     libfole_identifier_t *identifier,
-     const uint8_t *byte_stream,
-     size_t byte_stream_size,
-     int byte_order,
-     libfole_error_t **error );
-
-/* Copies the identifier to a byte stream
- * Returns 1 if successful or -1 on error
- */
-LIBFOLE_EXTERN \
-int libfole_identifier_copy_to_byte_stream(
-     libfole_identifier_t *identifier,
-     uint8_t *byte_stream,
-     size_t byte_stream_size,
-     int byte_order,
-     libfole_error_t **error );
-
-/* Retrieves the size of an UTF-8 encoded string of the identifier
- * The string size includes the end of string character
- * Returns 1 if successful or -1 on error
- */
-LIBFOLE_EXTERN \
-int libfole_identifier_get_string_size(
-     libfole_identifier_t *identifier,
-     size_t *string_size,
-     uint32_t string_format_flags,
-     libfole_error_t **error );
-
-/* Copies the identifier from an UTF-8 encoded string
- * Returns 1 if successful or -1 on error
- */
-LIBFOLE_EXTERN \
-int libfole_identifier_copy_from_utf8_string(
-     libfole_identifier_t *identifier,
-     const uint8_t *utf8_string,
-     size_t utf8_string_length,
-     uint32_t string_format_flags,
-     libfole_error_t **error );
-
-/* Copies the identifier from an UTF-8 encoded string
- * Returns 1 if successful or -1 on error
- */
-LIBFOLE_EXTERN \
-int libfole_identifier_copy_from_utf8_string_with_index(
-     libfole_identifier_t *identifier,
-     const uint8_t *utf8_string,
-     size_t utf8_string_length,
-     size_t *utf8_string_index,
-     uint32_t string_format_flags,
-     libfole_error_t **error );
-
-/* Copies the identifier to an UTF-8 encoded string
- * The string size should include the end of string character
- * Returns 1 if successful or -1 on error
- */
-LIBFOLE_EXTERN \
-int libfole_identifier_copy_to_utf8_string(
-     libfole_identifier_t *identifier,
-     uint8_t *utf8_string,
-     size_t utf8_string_size,
-     uint32_t string_format_flags,
-     libfole_error_t **error );
-
-/* Copies the identifier to an UTF-8 encoded string
- * The string size should include the end of string character
- * Returns 1 if successful or -1 on error
- */
-LIBFOLE_EXTERN \
-int libfole_identifier_copy_to_utf8_string_with_index(
-     libfole_identifier_t *identifier,
-     uint8_t *utf8_string,
-     size_t utf8_string_size,
-     size_t *utf8_string_index,
-     uint32_t string_format_flags,
-     libfole_error_t **error );
-
-/* Copies the identifier from an UTF-16 encoded string
- * Returns 1 if successful or -1 on error
- */
-LIBFOLE_EXTERN \
-int libfole_identifier_copy_from_utf16_string(
-     libfole_identifier_t *identifier,
-     const uint16_t *utf16_string,
-     size_t utf16_string_length,
-     uint32_t string_format_flags,
-     libfole_error_t **error );
-
-/* Copies the identifier from an UTF-16 encoded string
- * Returns 1 if successful or -1 on error
- */
-LIBFOLE_EXTERN \
-int libfole_identifier_copy_from_utf16_string_with_index(
-     libfole_identifier_t *identifier,
-     const uint16_t *utf16_string,
-     size_t utf16_string_length,
-     size_t *utf16_string_index,
-     uint32_t string_format_flags,
-     libfole_error_t **error );
-
-/* Copies the identifier to an UTF-16 encoded string
- * The string size should include the end of string character
- * Returns 1 if successful or -1 on error
- */
-LIBFOLE_EXTERN \
-int libfole_identifier_copy_to_utf16_string(
-     libfole_identifier_t *identifier,
-     uint16_t *utf16_string,
-     size_t utf16_string_size,
-     uint32_t string_format_flags,
-     libfole_error_t **error );
-
-/* Copies the identifier to an UTF-16 encoded string
- * The string size should include the end of string character
- * Returns 1 if successful or -1 on error
- */
-LIBFOLE_EXTERN \
-int libfole_identifier_copy_to_utf16_string_with_index(
-     libfole_identifier_t *identifier,
-     uint16_t *utf16_string,
-     size_t utf16_string_size,
-     size_t *utf16_string_index,
-     uint32_t string_format_flags,
-     libfole_error_t **error );
-
-/* Copies the identifier from an UTF-32 encoded string
- * Returns 1 if successful or -1 on error
- */
-LIBFOLE_EXTERN \
-int libfole_identifier_copy_from_utf32_string(
-     libfole_identifier_t *identifier,
-     const uint32_t *utf32_string,
-     size_t utf32_string_length,
-     uint32_t string_format_flags,
-     libfole_error_t **error );
-
-/* Copies the identifier from an UTF-32 encoded string
- * Returns 1 if successful or -1 on error
- */
-LIBFOLE_EXTERN \
-int libfole_identifier_copy_from_utf32_string_with_index(
-     libfole_identifier_t *identifier,
-     const uint32_t *utf32_string,
-     size_t utf32_string_length,
-     size_t *utf32_string_index,
-     uint32_t string_format_flags,
-     libfole_error_t **error );
-
-/* Copies the identifier to an UTF-32 encoded string
- * The string size should include the end of string character
- * Returns 1 if successful or -1 on error
- */
-LIBFOLE_EXTERN \
-int libfole_identifier_copy_to_utf32_string(
-     libfole_identifier_t *identifier,
-     uint32_t *utf32_string,
-     size_t utf32_string_size,
-     uint32_t string_format_flags,
-     libfole_error_t **error );
-
-/* Copies the identifier to an UTF-32 encoded string
- * The string size should include the end of string character
- * Returns 1 if successful or -1 on error
- */
-LIBFOLE_EXTERN \
-int libfole_identifier_copy_to_utf32_string_with_index(
-     libfole_identifier_t *identifier,
-     uint32_t *utf32_string,
-     size_t utf32_string_size,
-     size_t *utf32_string_index,
-     libfole_error_t **error );
+const char *libfole_value_type_get_description(
+             uint32_t value_type );
 
 #if defined( __cplusplus )
 }

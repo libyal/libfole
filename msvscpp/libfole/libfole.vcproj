@@ -181,6 +181,10 @@
 				RelativePath="..\..\libfole\libfole_support.c"
 				>
 			</File>
+			<File
+				RelativePath="..\..\libfole\libfole_value_type.c"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -217,6 +221,10 @@
 			</File>
 			<File
 				RelativePath="..\..\libfole\libfole_unused.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\libfole\libfole_value_type.h"
 				>
 			</File>
 		</Filter>

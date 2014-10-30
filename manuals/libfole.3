@@ -1,4 +1,4 @@
-.Dd January 5, 2014
+.Dd October 30, 2014
 .Dt libfole 3
 .Os libfole
 .Sh NAME
@@ -24,6 +24,12 @@ Error functions
 .Fn libfole_error_backtrace_fprint "libfole_error_t *error, FILE *stream"
 .Ft int
 .Fn libfole_error_backtrace_sprint "libfole_error_t *error, char *string, size_t size"
+.Pp
+Value type functions
+.Ft const char *
+.Fn libfole_value_type_get_identifier "uint32_t value_type"
+.Ft const char *
+.Fn libfole_value_type_get_description "uint32_t value_type"
 .Sh DESCRIPTION
 The
 .Fn libfole_get_version

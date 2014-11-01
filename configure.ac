@@ -80,6 +80,11 @@ AS_IF(
   AC_SUBST(
    [HAVE_DLLMAIN],
    [1])
+
+  dnl Used in tests
+  AC_SUBST(
+   [LIBFOLE_DLL_IMPORT],
+   ["-DLIBFOLE_DLL_IMPORT"])
   ])
  ])
 

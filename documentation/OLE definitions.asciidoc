@@ -128,8 +128,7 @@ The size is dependent on architecture, but should be 32-bit in storage
 | 0x001e | VT_LPSTR | ASCII string +
 (extended) ASCII or Single Byte Character (SBC) string with end-of-string character
 | 0x001f | VT_LPWSTR | Unicode string +
-The string uses UTF-16 little-endian (LE) without the byte order mark (BOM)
-| terminated by a NUL-character
+The string uses UTF-16 little-endian (LE) without the byte order mark (BOM) terminated by a NUL-character
 | | | 
 | 0x0040 | VT_FILETIME | Windows FILETIME (or System Time) (64-bit) +
 The FILETIME is stored as: +

@@ -1,8 +1,6 @@
 = Object Linking and Embedding (OLE) definitions
 OLE property type definitions
 
-[yellow-background]*
-
 :numbered!:
 [abstract]
 == Summary

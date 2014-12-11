@@ -92,8 +92,9 @@ The application time is a double precision floating point and contains the whole
 See section: <<binary_string_property_type,Binary string property type (VT_BSTR)>>
 | 0x0009 | VT_DISPATCH | IDispatch * (pointer) +
 [yellow-background]*Not used*
-| 0x000a | VT_ERROR | Error value (32-bit)
-| SCODE | 0x000b | VT_BOOL | Boolean (8-bit) +
+| 0x000a | VT_ERROR | Error value (32-bit) +
+SCODE
+| 0x000b | VT_BOOL | Boolean (8-bit) +
 0x00 => False +
 0xff => True ([yellow-background]*or any value other then 0x00?*)
 | 0x000c | VT_VARIANT | VARIANT * (pointer) +

@@ -1,13 +1,12 @@
 Source: libfole
-Section: unknown
+Section: libs
 Priority: extra
 Maintainer: Joachim Metz <joachim.metz@gmail.com>
 Build-Depends: debhelper (>= 7), autotools-dev
-Standards-Version: 3.8.3
+Standards-Version: 3.9.5
 Homepage: https://github.com/libyal/libfole/
 
 Package: libfole
-Section: libs
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Suggests: libfole-dbg
@@ -17,14 +16,14 @@ Description: Library to support the Object Linking and Embedding (OLE) data type
 Package: libfole-dbg
 Architecture: any
 Section: debug
-Depends: libfole (= ${Source-Version}), ${misc:Depends}
+Depends: libfole (= ${binary:Version}), ${misc:Depends}
 Description: Debugging symbols for libfole
  Debugging symbols for libfole.
 
 Package: libfole-dev
 Section: libdevel
 Architecture: any
-Depends: libfole (= ${Source-Version})
+Depends: libfole (= ${binary:Version}), ${misc:Depends}
 Description: Header files and libraries for developing applications for libfole
  Header files and libraries for developing applications for libfole.
 

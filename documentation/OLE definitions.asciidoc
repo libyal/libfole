@@ -24,7 +24,7 @@ file type.
 [preface]
 == License
 ....
-Copyright (c) 2009-2014, Joachim Metz <joachim.metz@gmail.com>.
+Copyright (c) 2009-2015, Joachim Metz <joachim.metz@gmail.com>.
 Permission is granted to copy, distribute and/or modify this document under the 
 terms of the GNU Free Documentation License, Version 1.3 or any later version 
 published by the Free Software Foundation; with no Invariant Sections, no 
@@ -42,6 +42,7 @@ in the section entitled "GNU Free Documentation License".
 | 0.0.3 | J.B. Metz | July 2013 | Additional information.
 | 0.0.4 | J.B. Metz | August 2014 | Textual changes.
 | 0.0.5 | J.B. Metz | December 2014 | Switched to asccidoc format.
+| 0.0.6 | J.B. Metz | June 2015 | Additional information regarding unknown variant types.
 |===
 
 :numbered:
@@ -100,6 +101,7 @@ SCODE
 | 0x000d | VT_UNKNOWN | IUnknown * (pointer) +
 [yellow-background]*Not used*
 | 0x000e | VT_DECIMAL | Fixed point (128-bit)
+| 0x000f | | [yellow-background]*Unknown*
 | | | 
 | 0x0010 | VT_I1 | Integer 8-bit signed
 | 0x0011 | VT_UI1 | Integer 8-bit unsigned
@@ -128,6 +130,32 @@ The size is dependent on architecture, but should be 32-bit in storage
 | 0x001f | VT_LPWSTR | Unicode string +
 The string uses UTF-16 little-endian (LE) without the byte order mark (BOM) terminated by a NUL-character
 | | | 
+| 0x0020 | | [yellow-background]*Unknown, seen to be used*
+| 0x0021 | | [yellow-background]*Unknown, seen to be used*
+| 0x0022 | | [yellow-background]*Unknown, seen to be used*
+| 0x0023 | | [yellow-background]*Unknown, seen to be used*
+| 0x0024 | VT_RECORD | [yellow-background]*Unknown, contains a BRECORD*
+| 0x0025 | VT_INT_PTR | [yellow-background]*A platform specific 4-byte or 8-byte signed integer*
+| 0x0026 | VT_UINT_PTR | [yellow-background]*A platform specific 4-byte or 8-byte unsigned integer*
+| | | 
+| 0x0028 | | [yellow-background]*Unknown, seen to be used*
+| | | 
+| 0x002b | | [yellow-background]*Unknown, seen to be used*
+| 0x002c | | [yellow-background]*Unknown, seen to be used*
+| | | 
+| 0x002e | | [yellow-background]*Unknown, seen to be used*
+| 0x002f | | [yellow-background]*Unknown, seen to be used*
+| 0x0030 | | [yellow-background]*Unknown, seen to be used*
+| 0x0031 | | [yellow-background]*Unknown, seen to be used*
+| | | 
+| 0x0033 | | [yellow-background]*Unknown, seen to be used*
+| | | 
+| 0x0035 | | [yellow-background]*Unknown, seen to be used*
+| 0x0036 | | [yellow-background]*Unknown, seen to be used*
+| | | 
+| 0x0038 | | [yellow-background]*Unknown, seen to be used*
+| | | 
+| 0x003f | | [yellow-background]*Unknown, seen to be used*
 | 0x0040 | VT_FILETIME | Windows FILETIME (or System Time) (64-bit) +
 The FILETIME is stored as: +
 32-bit low part +
@@ -148,6 +176,23 @@ Unsigned 16-bit Integer +
 Unsigned 16-bit Integer +
 8 byte array
 | 0x0049 | VT_VERSIONED_STREAM | Stream with an application specific GUID
+| 0x004a | | [yellow-background]*Unknown, seen to be used*
+| 0x004b | | [yellow-background]*Unknown, seen to be used*
+| | | 
+| 0x006f | | [yellow-background]*Unknown, seen to be used*
+| | | 
+| 0x0074 | | [yellow-background]*Unknown, seen to be used*
+| 0x0075 | | [yellow-background]*Unknown, seen to be used*
+| | | 
+| 0x007f | | [yellow-background]*Unknown, seen to be used*
+| | | 
+| 0x0081 | | [yellow-background]*Unknown, seen to be used*
+| | | 
+| 0x0092 | | [yellow-background]*Unknown, seen to be used*
+| | | 
+| 0x009f | | [yellow-background]*Unknown, seen to be used*
+| | | 
+| 0x00e8 | | [yellow-background]*Unknown, seen to be used*
 |===
 
 The 4 MSB of the value type are used as flags:
@@ -257,6 +302,39 @@ Or for variable sized variant values like VT_LPSTR:
 | 4 | 4 | | Value data size
 | 8 | ... | | Value data
 |===
+
+== Notes
+=== BRECORD
+A BRECORD is the type used for the representation of UDTs on the wire.
+
+....
+typedef [unique] struct _wireBRECORD* BRECORD;
+
+typedef struct _wireBRECORD {
+  ULONG fFlags;
+  ULONG clSize;
+  MInterfacePointer* pRecInfo;
+  [size_is(clSize)] byte* pRecord;
+} wireBRECORDStr;
+
+fFlags: MUST be 0 if pRecord is NULL. Otherwise, the value MUST be 1.
+
+clSize: MUST be 0 if pRecord is NULL. Otherwise, the value MUST equal the size 
+(in bytes) of the UDTs contained in pRecord, plus 4 bytes to account for the 
+prefix contained in pRecord.
+
+pRecInfo: MUST specify an MInterfacePointer that MUST contain an OBJREF_CUSTOM 
+with a CLSID field set to CLSID_RecordInfo (1.9) and a pObjectData field that 
+MUST contain a RecordInfoData binary large object (BLOB) (2.2.31). The iid 
+field of the OBJREF portion of the structure MUST be set to IID_IRecordInfo 
+(1.9). An implementation MAY use this value as the IID of a local-only 
+interface.
+
+pRecord: MUST be NULL if there are no UDTs. Otherwise, the value MUST contain 
+the NDR-marshaled representation of the UDTs, prefixed by a 4-byte unsigned 
+integer that specifies the size, in bytes. This integer MUST equal the value of 
+clSize.
+....
 
 :numbered!:
 [appendix]

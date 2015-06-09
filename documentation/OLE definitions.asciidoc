@@ -336,6 +336,26 @@ integer that specifies the size, in bytes. This integer MUST equal the value of
 clSize.
 ....
 
+=== VT_LPSTR multi value
+In 3D Studio Max files VT_LPSTR multi value with UTF-16 little-endian strings
+followed by alignment padding.
+
+....
+libolecf_property_value_read_data: property value type                  : 0x0000101e
+libolecf_property_value_read_data: number of values data:
+00000000: 7a 00 00 00                                        z...
+
+libolecf_property_value_read_data: number of values                     : 122
+
+002501d0                                       2e 00 00 00  |            ....|
+002501e0  33 00 64 00 73 00 20 00  4d 00 61 00 78 00 20 00  |3.d.s. .M.a.x. .|
+002501f0  56 00 65 00 72 00 73 00  69 00 6f 00 6e 00 3a 00  |V.e.r.s.i.o.n.:.|
+00250200  20 00 31 00 34 00 2e 00  30 00 30 00 00 00 00 00  | .1.4...0.0.....|
+
+00250210  1a 00 00 00 55 00 6e 00  63 00 6f 00 6d 00 70 00  |....U.n.c.o.m.p.|
+00250220  72 00 65 00 73 00 73 00  65 00 64 00 00 00 00 00  |r.e.s.s.e.d.....|
+...
+
 :numbered!:
 [appendix]
 == References

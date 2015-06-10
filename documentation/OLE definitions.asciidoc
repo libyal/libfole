@@ -337,8 +337,18 @@ clSize.
 ....
 
 === VT_LPSTR multi value
+OLECF vresion 3.63 normal VT_LPSTR multi value:
+....
+00995960              1e 10 00 00  4d 00 00 00 06 00 00 00  |    ....M.......|
+00995970  41 72 69 61 6c 00 10 00  00 00 54 69 6d 65 73 20  |Arial.....Times |
+00995980  4e 65 77 20 52 6f 6d 61  6e 00 0a 00 00 00 57 69  |New Roman.....Wi|
+00995990  6e 67 64 69 6e 67 73 00  0d 00 00 00 42 6f 6f 6b  |ngdings.....Book|
+009959a0  20 41 6e 74 69 71 75 61  00 08 00 00 00 56 65 72  | Antiqua.....Ver|
+009959b0  64 61 6e 61 00                                    |dana.           |
+....
+
 In 3D Studio Max files VT_LPSTR multi value with UTF-16 little-endian strings
-followed by alignment padding.
+followed by alignment padding. OLECF version 4.62.
 
 ....
 libolecf_property_value_read_data: property value type                  : 0x0000101e

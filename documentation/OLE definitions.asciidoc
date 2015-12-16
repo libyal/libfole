@@ -1,6 +1,9 @@
 = Object Linking and Embedding (OLE) definitions
 OLE property type definitions
 
+:toc:
+:toclevels: 4
+
 :numbered!:
 [abstract]
 == Summary

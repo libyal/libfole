@@ -1,12 +1,12 @@
 include_HEADERS = \
-        libfole.h
+	libfole.h
 
 pkginclude_HEADERS = \
-        libfole/definitions.h \
-        libfole/error.h \
-        libfole/extern.h \
-        libfole/features.h \
-        libfole/types.h
+	libfole/definitions.h \
+	libfole/error.h \
+	libfole/extern.h \
+	libfole/features.h \
+	libfole/types.h
 
 EXTRA_DIST = \
 	libfole.h.in \

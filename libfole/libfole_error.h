@@ -23,9 +23,8 @@
 #define _LIBFOLE_INTERNAL_ERROR_H
 
 #include <common.h>
+#include <file_stream.h>
 #include <types.h>
-
-#include <stdio.h>
 
 #if !defined( HAVE_LOCAL_LIBFOLE )
 #include <libfole/error.h>
@@ -65,11 +64,11 @@ int libfole_error_backtrace_sprint(
      char *string,
      size_t size );
 
-#endif
+#endif /* !defined( HAVE_LOCAL_LIBFOLE ) */
 
 #if defined( __cplusplus )
 }
 #endif
 
-#endif
+#endif /* !defined( _LIBFOLE_INTERNAL_ERROR_H ) */
 

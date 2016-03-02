@@ -34,14 +34,14 @@
 /* The following type definitions hide internal data structures
  */
 #if defined( HAVE_DEBUG_OUTPUT ) && !defined( WINAPI )
-typedef struct libfole_identifier {}	libfole_identifier_t;
+
 
 #else
-typedef intptr_t libfole_identifier_t;
 
-#endif
 
-#endif
+#endif /* defined( HAVE_DEBUG_OUTPUT ) && !defined( WINAPI ) */
 
-#endif
+#endif /* defined( HAVE_LOCAL_LIBFOLE ) */
+
+#endif /* !defined( _LIBFOLE_INTERNAL_TYPES_H ) */
 

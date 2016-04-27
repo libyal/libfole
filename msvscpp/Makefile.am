@@ -1,4 +1,5 @@
 MSVSCPP_FILES = \
+	fole_test_get_version/fole_test_get_version.vcproj \
 	libcerror/libcerror.vcproj \
 	libcstring/libcstring.vcproj \
 	libfole/libfole.vcproj \

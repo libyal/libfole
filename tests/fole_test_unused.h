@@ -1,5 +1,5 @@
 /*
- * The internal libfole header
+ * The unused definition
  *
  * Copyright (C) 2008-2016, Joachim Metz <joachim.metz@gmail.com>
  *
@@ -19,19 +19,32 @@
  * along with this software.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#if !defined( _FOLE_TEST_LIBFOLE_H )
-#define _FOLE_TEST_LIBFOLE_H
+#if !defined( _FOLE_TEST_UNUSED_H )
+#define _FOLE_TEST_UNUSED_H
 
 #include <common.h>
 
-/* If Cygwin libtool DLL support is enabled and do not want to create static
- * executables set LIBFOLE_DLL_IMPORT before including libfole.h
- */
-#if defined( _WIN32 ) && defined( DLL_EXPORT ) && !defined( HAVE_STATIC_EXECUTABLES )
-#define LIBFOLE_DLL_IMPORT
-#endif
+#if !defined( FOLE_TEST_ATTRIBUTE_UNUSED )
 
-#include <libfole.h>
+#if defined( __GNUC__ ) && __GNUC__ >= 3
+#define FOLE_TEST_ATTRIBUTE_UNUSED	__attribute__ ((__unused__))
 
-#endif /* !defined( _FOLE_TEST_LIBFOLE_H ) */
+#else
+#define FOLE_TEST_ATTRIBUTE_UNUSED
+
+#endif /* defined( __GNUC__ ) && __GNUC__ >= 3 */
+
+#endif /* !defined( FOLE_TEST_ATTRIBUTE_UNUSED ) */
+
+#if defined( _MSC_VER )
+#define FOLE_TEST_UNREFERENCED_PARAMETER( parameter ) \
+	UNREFERENCED_PARAMETER( parameter );
+
+#else
+#define FOLE_TEST_UNREFERENCED_PARAMETER( parameter ) \
+	/* parameter */
+
+#endif /* defined( _MSC_VER ) */
+
+#endif /* !defined( _FOLE_TEST_UNUSED_H ) */
 

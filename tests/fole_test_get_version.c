@@ -20,7 +20,6 @@
  */
 
 #include <common.h>
-#include <file_stream.h>
 
 #if defined( HAVE_STDLIB_H ) || defined( WINAPI )
 #include <stdlib.h>
@@ -28,6 +27,7 @@
 
 #include "fole_test_libcstring.h"
 #include "fole_test_libfole.h"
+#include "fole_test_macros.h"
 #include "fole_test_unused.h"
 
 /* Tests retrieving the library version
@@ -46,11 +46,15 @@ int fole_test_get_version(
 	          LIBFOLE_VERSION_STRING,
 	          9 );
 
-	if( result != 0 )
-	{
-		return( 0 );
-	}
+	FOLE_TEST_ASSERT_EQUAL(
+	 "result",
+	 result,
+	 0 );
+
 	return( 1 );
+
+on_error:
+	return( 0 );
 }
 
 /* The main program
@@ -68,10 +72,13 @@ int main(
 	FOLE_TEST_UNREFERENCED_PARAMETER( argc )
 	FOLE_TEST_UNREFERENCED_PARAMETER( argv )
 
-	if( fole_test_get_version() != 1 )
-	{
-		return( EXIT_FAILURE );
-	}
+	FOLE_TEST_RUN(
+	 "libfole_get_version",
+	 fole_test_get_version() )
+
 	return( EXIT_SUCCESS );
+
+on_error:
+	return( EXIT_FAILURE );
 }
 

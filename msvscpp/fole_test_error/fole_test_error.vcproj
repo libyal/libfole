@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9,00"
-	Name="fole_test_get_version"
-	ProjectGUID="{88A62F8F-8CD3-49D9-869B-079BF72896C7}"
-	RootNamespace="fole_test_get_version"
+	Name="fole_test_error"
+	ProjectGUID="{0CC4E65F-6263-4D95-9B08-FD8FD0F84651}"
+	RootNamespace="fole_test_error"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="131072"
 	>
@@ -176,7 +176,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\tests\fole_test_get_version.c"
+				RelativePath="..\..\tests\fole_test_error.c"
 				>
 			</File>
 		</Filter>

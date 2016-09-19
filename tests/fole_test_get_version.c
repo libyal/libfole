@@ -46,7 +46,7 @@ int fole_test_get_version(
 	          LIBFOLE_VERSION_STRING,
 	          9 );
 
-	FOLE_TEST_ASSERT_EQUAL(
+	FOLE_TEST_ASSERT_EQUAL_INT(
 	 "result",
 	 result,
 	 0 );

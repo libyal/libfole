@@ -38,5 +38,5 @@ enum LIBFOLE_ENDIAN
 	LIBFOLE_ENDIAN_LITTLE				= (int) 'l'
 };
 
-#endif
+#endif /* !defined( _LIBFOLE_DEFINITIONS_H ) */
 

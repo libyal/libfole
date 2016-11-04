@@ -38,10 +38,9 @@
 #include <libfole/extern.h>
 
 #else
-
 #define LIBFOLE_EXTERN	extern
 
 #endif
 
-#endif
+#endif /* !defined( _LIBFOLE_INTERNAL_EXTERN_H ) */
 

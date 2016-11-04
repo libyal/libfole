@@ -123,23 +123,23 @@ int main(
 
 	FOLE_TEST_RUN(
 	 "libfole_error_free",
-	 fole_test_error_free() )
+	 fole_test_error_free );
 
 	FOLE_TEST_RUN(
 	 "libfole_error_fprint",
-	 fole_test_error_fprint() )
+	 fole_test_error_fprint );
 
 	FOLE_TEST_RUN(
 	 "libfole_error_sprint",
-	 fole_test_error_sprint() )
+	 fole_test_error_sprint );
 
 	FOLE_TEST_RUN(
 	 "libfole_error_backtrace_fprint",
-	 fole_test_error_backtrace_fprint() )
+	 fole_test_error_backtrace_fprint );
 
 	FOLE_TEST_RUN(
 	 "libfole_error_backtrace_sprint",
-	 fole_test_error_backtrace_sprint() )
+	 fole_test_error_backtrace_sprint );
 
 	return( EXIT_SUCCESS );
 

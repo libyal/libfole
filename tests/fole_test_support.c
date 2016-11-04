@@ -1,5 +1,5 @@
 /*
- * Library get version test program
+ * Library support functions test program
  *
  * Copyright (C) 2008-2016, Joachim Metz <joachim.metz@gmail.com>
  *
@@ -30,7 +30,7 @@
 #include "fole_test_macros.h"
 #include "fole_test_unused.h"
 
-/* Tests retrieving the library version
+/* Tests the libfole_get_version function
  * Returns 1 if successful or 0 if not
  */
 int fole_test_get_version(
@@ -74,7 +74,7 @@ int main(
 
 	FOLE_TEST_RUN(
 	 "libfole_get_version",
-	 fole_test_get_version() )
+	 fole_test_get_version );
 
 	return( EXIT_SUCCESS );
 

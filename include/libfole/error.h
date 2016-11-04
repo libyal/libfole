@@ -33,13 +33,13 @@ typedef intptr_t libfole_error_t;
 enum LIBFOLE_ERROR_DOMAINS
 {
 	LIBFOLE_ERROR_DOMAIN_ARGUMENTS			= (int) 'a',
-	LIBFOLE_ERROR_DOMAIN_CONVERSION		= (int) 'c',
+	LIBFOLE_ERROR_DOMAIN_CONVERSION			= (int) 'c',
 	LIBFOLE_ERROR_DOMAIN_COMPRESSION		= (int) 'C',
-	LIBFOLE_ERROR_DOMAIN_IO			= (int) 'I',
+	LIBFOLE_ERROR_DOMAIN_IO				= (int) 'I',
 	LIBFOLE_ERROR_DOMAIN_INPUT			= (int) 'i',
 	LIBFOLE_ERROR_DOMAIN_MEMORY			= (int) 'm',
 	LIBFOLE_ERROR_DOMAIN_OUTPUT			= (int) 'o',
-	LIBFOLE_ERROR_DOMAIN_RUNTIME			= (int) 'r',
+	LIBFOLE_ERROR_DOMAIN_RUNTIME			= (int) 'r'
 };
 
 /* The argument error codes
@@ -205,7 +205,18 @@ enum LIBFOLE_MEMORY_ERROR
 
 	/* The memory failed to be set
 	 */
-	LIBFOLE_MEMORY_ERROR_SET_FAILED		= 3
+	LIBFOLE_MEMORY_ERROR_SET_FAILED			= 3
+};
+
+/* The output error codes
+ */
+enum LIBFOLE_OUTPUT_ERROR
+{
+	LIBFOLE_OUTPUT_ERROR_GENERIC			= 0,
+
+	/* There is insuficient space to write the output
+	 */
+	LIBFOLE_OUTPUT_ERROR_INSUFFICIENT_SPACE		= 1
 };
 
 /* The runtime error codes
@@ -221,11 +232,11 @@ enum LIBFOLE_RUNTIME_ERROR
 
 	/* The value was already set
 	 */
-	LIBFOLE_RUNTIME_ERROR_VALUE_ALREADY_SET	= 2,
+	LIBFOLE_RUNTIME_ERROR_VALUE_ALREADY_SET		= 2,
 
 	/* The creation and/or initialization of an internal structure failed
 	 */
-	LIBFOLE_RUNTIME_ERROR_INITIALIZE_FAILED	= 3,
+	LIBFOLE_RUNTIME_ERROR_INITIALIZE_FAILED		= 3,
 
 	/* The resize of an internal structure failed
 	 */
@@ -269,23 +280,12 @@ enum LIBFOLE_RUNTIME_ERROR
 
 	/* The value is unsupported
 	 */
-	LIBFOLE_RUNTIME_ERROR_UNSUPPORTED_VALUE	= 14,
+	LIBFOLE_RUNTIME_ERROR_UNSUPPORTED_VALUE		= 14,
 
 	/* An abort was requested
 	 */
 	LIBFOLE_RUNTIME_ERROR_ABORT_REQUESTED		= 15
 };
 
-/* The output error codes
- */
-enum LIBFOLE_OUTPUT_ERROR
-{
-	LIBFOLE_OUTPUT_ERROR_GENERIC			= 0,
-
-	/* There is insuficient space to write the output
-	 */
-	LIBFOLE_OUTPUT_ERROR_INSUFFICIENT_SPACE	= 1
-};
-
-#endif
+#endif /* !defined( _LIBFOLE_ERROR_H ) */
 

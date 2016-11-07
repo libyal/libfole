@@ -1,7 +1,6 @@
 AM_CPPFLAGS = \
 	-I$(top_srcdir)/include \
 	-I$(top_srcdir)/common \
-	@LIBCSTRING_CPPFLAGS@ \
 	@LIBCERROR_CPPFLAGS@
 
 lib_LTLIBRARIES = libfole.la
@@ -12,14 +11,12 @@ libfole_la_SOURCES = \
 	libfole_extern.h \
 	libfole_error.c libfole_error.h \
 	libfole_libcerror.h \
-	libfole_libcstring.h \
 	libfole_support.c libfole_support.h \
 	libfole_types.h \
 	libfole_unused.h \
 	libfole_value_type.c libfole_value_type.h
 
 libfole_la_LIBADD = \
-	@LIBCSTRING_LIBADD@ \
 	@LIBCERROR_LIBADD@
 
 libfole_la_LDFLAGS = -no-undefined -version-info 1:0:0

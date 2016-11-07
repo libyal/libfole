@@ -7,6 +7,6 @@ Name: libfole
 Description: Library to support the Object Linking and Embedding (OLE) data types
 Version: @VERSION@
 Libs: -L${libdir} -lfole
-Libs.private: @ax_libcerror_pc_libs_private@ @ax_libcstring_pc_libs_private@
+Libs.private: @ax_libcerror_pc_libs_private@
 Cflags: -I${includedir}
 

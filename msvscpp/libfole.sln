@@ -3,28 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual C++ Express 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libfole", "libfole\libfole.vcproj", "{10F855CA-4F78-4C5F-9F73-2FA03C035121}"
 	ProjectSection(ProjectDependencies) = postProject
-		{9DB11F7E-3A08-4647-975E-2259D5485181} = {9DB11F7E-3A08-4647-975E-2259D5485181}
 		{145E2FC0-0580-484A-B20A-B38682325816} = {145E2FC0-0580-484A-B20A-B38682325816}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fole_test_error", "fole_test_error\fole_test_error.vcproj", "{0CC4E65F-6263-4D95-9B08-FD8FD0F84651}"
 	ProjectSection(ProjectDependencies) = postProject
 		{10F855CA-4F78-4C5F-9F73-2FA03C035121} = {10F855CA-4F78-4C5F-9F73-2FA03C035121}
-		{9DB11F7E-3A08-4647-975E-2259D5485181} = {9DB11F7E-3A08-4647-975E-2259D5485181}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fole_test_support", "fole_test_support\fole_test_support.vcproj", "{4B7E6AB8-915C-44EA-9043-EAC99486F935}"
 	ProjectSection(ProjectDependencies) = postProject
 		{10F855CA-4F78-4C5F-9F73-2FA03C035121} = {10F855CA-4F78-4C5F-9F73-2FA03C035121}
-		{9DB11F7E-3A08-4647-975E-2259D5485181} = {9DB11F7E-3A08-4647-975E-2259D5485181}
 	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcstring", "libcstring\libcstring.vcproj", "{9DB11F7E-3A08-4647-975E-2259D5485181}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcerror", "libcerror\libcerror.vcproj", "{145E2FC0-0580-484A-B20A-B38682325816}"
-	ProjectSection(ProjectDependencies) = postProject
-		{9DB11F7E-3A08-4647-975E-2259D5485181} = {9DB11F7E-3A08-4647-975E-2259D5485181}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,10 +36,6 @@ Global
 		{4B7E6AB8-915C-44EA-9043-EAC99486F935}.Release|Win32.Build.0 = Release|Win32
 		{4B7E6AB8-915C-44EA-9043-EAC99486F935}.VSDebug|Win32.ActiveCfg = VSDebug|Win32
 		{4B7E6AB8-915C-44EA-9043-EAC99486F935}.VSDebug|Win32.Build.0 = VSDebug|Win32
-		{9DB11F7E-3A08-4647-975E-2259D5485181}.Release|Win32.ActiveCfg = Release|Win32
-		{9DB11F7E-3A08-4647-975E-2259D5485181}.Release|Win32.Build.0 = Release|Win32
-		{9DB11F7E-3A08-4647-975E-2259D5485181}.VSDebug|Win32.ActiveCfg = VSDebug|Win32
-		{9DB11F7E-3A08-4647-975E-2259D5485181}.VSDebug|Win32.Build.0 = VSDebug|Win32
 		{145E2FC0-0580-484A-B20A-B38682325816}.Release|Win32.ActiveCfg = Release|Win32
 		{145E2FC0-0580-484A-B20A-B38682325816}.Release|Win32.Build.0 = Release|Win32
 		{145E2FC0-0580-484A-B20A-B38682325816}.VSDebug|Win32.ActiveCfg = VSDebug|Win32

@@ -1,7 +1,6 @@
 AM_CPPFLAGS = \
 	-I$(top_srcdir)/include \
 	-I$(top_srcdir)/common \
-	@LIBCSTRING_CPPFLAGS@ \
 	@LIBCERROR_CPPFLAGS@ \
 	@LIBFOLE_DLL_IMPORT@
 
@@ -21,25 +20,21 @@ check_PROGRAMS = \
 
 fole_test_error_SOURCES = \
 	fole_test_error.c \
-	fole_test_libcstring.h \
 	fole_test_libfole.h \
 	fole_test_macros.h \
 	fole_test_unused.h
 
 fole_test_error_LDADD = \
-	../libfole/libfole.la \
-	@LIBCSTRING_LIBADD@
+	../libfole/libfole.la
 
 fole_test_support_SOURCES = \
 	fole_test_support.c \
-	fole_test_libcstring.h \
 	fole_test_libfole.h \
 	fole_test_macros.h \
 	fole_test_unused.h
 
 fole_test_support_LDADD = \
-	../libfole/libfole.la \
-	@LIBCSTRING_LIBADD@
+	../libfole/libfole.la
 
 MAINTAINERCLEANFILES = \
 	Makefile.in

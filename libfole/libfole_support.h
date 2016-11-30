@@ -43,5 +43,5 @@ const char *libfole_get_version(
 }
 #endif
 
-#endif
+#endif /* !defined( _LIBFOLE_SUPPORT_H ) */
 

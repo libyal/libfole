@@ -1,10 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual C++ Express 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libfole", "libfole\libfole.vcproj", "{10F855CA-4F78-4C5F-9F73-2FA03C035121}"
-	ProjectSection(ProjectDependencies) = postProject
-		{145E2FC0-0580-484A-B20A-B38682325816} = {145E2FC0-0580-484A-B20A-B38682325816}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcerror", "libcerror\libcerror.vcproj", "{145E2FC0-0580-484A-B20A-B38682325816}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fole_test_error", "fole_test_error\fole_test_error.vcproj", "{0CC4E65F-6263-4D95-9B08-FD8FD0F84651}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -16,7 +13,15 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fole_test_support", "fole_t
 		{10F855CA-4F78-4C5F-9F73-2FA03C035121} = {10F855CA-4F78-4C5F-9F73-2FA03C035121}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcerror", "libcerror\libcerror.vcproj", "{145E2FC0-0580-484A-B20A-B38682325816}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fole_test_value_type", "fole_test_value_type\fole_test_value_type.vcproj", "{5488DD58-5C7B-4614-93C0-9985367C296A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{10F855CA-4F78-4C5F-9F73-2FA03C035121} = {10F855CA-4F78-4C5F-9F73-2FA03C035121}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libfole", "libfole\libfole.vcproj", "{10F855CA-4F78-4C5F-9F73-2FA03C035121}"
+	ProjectSection(ProjectDependencies) = postProject
+		{145E2FC0-0580-484A-B20A-B38682325816} = {145E2FC0-0580-484A-B20A-B38682325816}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,10 +29,10 @@ Global
 		VSDebug|Win32 = VSDebug|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{10F855CA-4F78-4C5F-9F73-2FA03C035121}.Release|Win32.ActiveCfg = Release|Win32
-		{10F855CA-4F78-4C5F-9F73-2FA03C035121}.Release|Win32.Build.0 = Release|Win32
-		{10F855CA-4F78-4C5F-9F73-2FA03C035121}.VSDebug|Win32.ActiveCfg = VSDebug|Win32
-		{10F855CA-4F78-4C5F-9F73-2FA03C035121}.VSDebug|Win32.Build.0 = VSDebug|Win32
+		{145E2FC0-0580-484A-B20A-B38682325816}.Release|Win32.ActiveCfg = Release|Win32
+		{145E2FC0-0580-484A-B20A-B38682325816}.Release|Win32.Build.0 = Release|Win32
+		{145E2FC0-0580-484A-B20A-B38682325816}.VSDebug|Win32.ActiveCfg = VSDebug|Win32
+		{145E2FC0-0580-484A-B20A-B38682325816}.VSDebug|Win32.Build.0 = VSDebug|Win32
 		{0CC4E65F-6263-4D95-9B08-FD8FD0F84651}.Release|Win32.ActiveCfg = Release|Win32
 		{0CC4E65F-6263-4D95-9B08-FD8FD0F84651}.Release|Win32.Build.0 = Release|Win32
 		{0CC4E65F-6263-4D95-9B08-FD8FD0F84651}.VSDebug|Win32.ActiveCfg = VSDebug|Win32
@@ -36,10 +41,14 @@ Global
 		{4B7E6AB8-915C-44EA-9043-EAC99486F935}.Release|Win32.Build.0 = Release|Win32
 		{4B7E6AB8-915C-44EA-9043-EAC99486F935}.VSDebug|Win32.ActiveCfg = VSDebug|Win32
 		{4B7E6AB8-915C-44EA-9043-EAC99486F935}.VSDebug|Win32.Build.0 = VSDebug|Win32
-		{145E2FC0-0580-484A-B20A-B38682325816}.Release|Win32.ActiveCfg = Release|Win32
-		{145E2FC0-0580-484A-B20A-B38682325816}.Release|Win32.Build.0 = Release|Win32
-		{145E2FC0-0580-484A-B20A-B38682325816}.VSDebug|Win32.ActiveCfg = VSDebug|Win32
-		{145E2FC0-0580-484A-B20A-B38682325816}.VSDebug|Win32.Build.0 = VSDebug|Win32
+		{5488DD58-5C7B-4614-93C0-9985367C296A}.Release|Win32.ActiveCfg = Release|Win32
+		{5488DD58-5C7B-4614-93C0-9985367C296A}.Release|Win32.Build.0 = Release|Win32
+		{5488DD58-5C7B-4614-93C0-9985367C296A}.VSDebug|Win32.ActiveCfg = VSDebug|Win32
+		{5488DD58-5C7B-4614-93C0-9985367C296A}.VSDebug|Win32.Build.0 = VSDebug|Win32
+		{10F855CA-4F78-4C5F-9F73-2FA03C035121}.Release|Win32.ActiveCfg = Release|Win32
+		{10F855CA-4F78-4C5F-9F73-2FA03C035121}.Release|Win32.Build.0 = Release|Win32
+		{10F855CA-4F78-4C5F-9F73-2FA03C035121}.VSDebug|Win32.ActiveCfg = VSDebug|Win32
+		{10F855CA-4F78-4C5F-9F73-2FA03C035121}.VSDebug|Win32.Build.0 = VSDebug|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

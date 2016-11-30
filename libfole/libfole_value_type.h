@@ -60,5 +60,5 @@ const char *libfole_value_type_get_description(
 }
 #endif
 
-#endif
+#endif /* !defined( _LIBFOLE_VALUE_TYPE_H ) */
 

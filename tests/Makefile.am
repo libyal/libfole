@@ -21,6 +21,7 @@ check_PROGRAMS = \
 
 fole_test_error_SOURCES = \
 	fole_test_error.c \
+	fole_test_libcerror.h \
 	fole_test_libfole.h \
 	fole_test_macros.h \
 	fole_test_unused.h
@@ -38,8 +39,10 @@ fole_test_support_LDADD = \
 	../libfole/libfole.la
 
 fole_test_value_type_SOURCES = \
+	fole_test_libcerror.h \
 	fole_test_libfole.h \
 	fole_test_macros.h \
+	fole_test_memory.c fole_test_memory.h \
 	fole_test_unused.h \
 	fole_test_value_type.c
 

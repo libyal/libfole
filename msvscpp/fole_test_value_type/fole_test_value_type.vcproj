@@ -176,6 +176,10 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath="..\..\tests\fole_test_memory.c"
+				>
+			</File>
+			<File
 				RelativePath="..\..\tests\fole_test_value_type.c"
 				>
 			</File>
@@ -186,11 +190,19 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath="..\..\tests\fole_test_libcerror.h"
+				>
+			</File>
+			<File
 				RelativePath="..\..\tests\fole_test_libfole.h"
 				>
 			</File>
 			<File
 				RelativePath="..\..\tests\fole_test_macros.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\tests\fole_test_memory.h"
 				>
 			</File>
 			<File

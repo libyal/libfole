@@ -16,10 +16,9 @@ DPKG_FILES = \
 	dpkg/compat \
 	dpkg/control \
 	dpkg/copyright \
-	dpkg/copyright.in \
 	dpkg/rules \
-	dpkg/libfole-dev.docs \
-	dpkg/libfole.docs \
+	dpkg/libfole-dev.install \
+	dpkg/libfole.install \
 	dpkg/source/format
 
 GETTEXT_FILES = \

@@ -33,6 +33,34 @@
 #include "fole_test_memory.h"
 #include "fole_test_unused.h"
 
+/* Tests the libfole_value_type_get_identifier function
+ * Returns 1 if successful or 0 if not
+ */
+int fole_test_value_type_get_identifier(
+     void )
+{
+	/* Test invocation of function only
+	 */
+	libfole_value_type_get_identifier(
+	 0x0001 );
+
+	return( 1 );
+}
+
+/* Tests the libfole_value_type_get_description function
+ * Returns 1 if successful or 0 if not
+ */
+int fole_test_value_type_get_description(
+     void )
+{
+	/* Test invocation of function only
+	 */
+	libfole_value_type_get_description(
+	 0x0001 );
+
+	return( 1 );
+}
+
 /* The main program
  */
 #if defined( HAVE_WIDE_SYSTEM_CHARACTER )
@@ -48,9 +76,13 @@ int main(
 	FOLE_TEST_UNREFERENCED_PARAMETER( argc )
 	FOLE_TEST_UNREFERENCED_PARAMETER( argv )
 
-	/* TODO: add tests for libfole_value_type_get_identifier */
+	FOLE_TEST_RUN(
+	 "libfole_value_type_get_identifier",
+	 fole_test_value_type_get_identifier );
 
-	/* TODO: add tests for libfole_value_type_get_description */
+	FOLE_TEST_RUN(
+	 "libfole_value_type_get_description",
+	 fole_test_value_type_get_description );
 
 	return( EXIT_SUCCESS );
 

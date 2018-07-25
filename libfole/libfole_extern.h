@@ -37,8 +37,11 @@
 
 #include <libfole/extern.h>
 
+#define LIBFOLE_EXTERN_VARIABLE	LIBFOLE_EXTERN
+
 #else
-#define LIBFOLE_EXTERN	/* extern */
+#define LIBFOLE_EXTERN		/* extern */
+#define LIBFOLE_EXTERN_VARIABLE	extern
 
 #endif /* !defined( HAVE_LOCAL_LIBFOLE ) */
 

@@ -24,13 +24,6 @@
 
 #include <common.h>
 
-/* If Cygwin libtool DLL support is enabled and do not want to create static
- * executables set LIBFOLE_DLL_IMPORT before including libfole.h
- */
-#if defined( _WIN32 ) && defined( DLL_EXPORT ) && !defined( HAVE_STATIC_EXECUTABLES )
-#define LIBFOLE_DLL_IMPORT
-#endif
-
 #include <libfole.h>
 
 #endif /* !defined( _FOLE_TEST_LIBFOLE_H ) */

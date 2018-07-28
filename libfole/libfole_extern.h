@@ -28,13 +28,6 @@
  */
 #if !defined( HAVE_LOCAL_LIBFOLE )
 
-/* If libtool DLL support is enabled set LIBFOLE_DLL_EXPORT
- * before including libfole/extern.h
- */
-#if defined( _WIN32 ) && defined( DLL_EXPORT )
-#define LIBFOLE_DLL_EXPORT
-#endif
-
 #include <libfole/extern.h>
 
 #define LIBFOLE_EXTERN_VARIABLE	LIBFOLE_EXTERN

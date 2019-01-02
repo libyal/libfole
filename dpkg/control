@@ -9,6 +9,8 @@ Homepage: https://github.com/libyal/libfole
 Package: libfole
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: libfole1
+Replaces: libfole1
 Suggests: libfole-dbg
 Description: Library to support the Object Linking and Embedding (OLE) data types
  libfole is a library to support the Object Linking and Embedding (OLE) data types.

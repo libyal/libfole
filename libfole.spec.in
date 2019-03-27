@@ -13,6 +13,14 @@ BuildRequires: gcc @ax_libcerror_spec_build_requires@
 %description -n libfole
 Library to support the Object Linking and Embedding (OLE) data types
 
+%package -n libfole-static
+Summary: Library to support the Object Linking and Embedding (OLE) data types
+Group: Development/Libraries
+Requires: libfole = %{version}-%{release}
+
+%description -n libfole-static
+Static library version of libfole.
+
 %package -n libfole-devel
 Summary: Header files and libraries for developing applications for libfole
 Group: Development/Libraries
@@ -45,11 +53,16 @@ rm -rf %{buildroot}
 %doc AUTHORS README
 %attr(755,root,root) %{_libdir}/*.so.*
 
+%files -n libfole-static
+%defattr(644,root,root,755)
+%license COPYING
+%doc AUTHORS README
+%attr(755,root,root) %{_libdir}/*.a
+
 %files -n libfole-devel
 %defattr(644,root,root,755)
 %license COPYING
 %doc AUTHORS README
-%{_libdir}/*.a
 %{_libdir}/*.la
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/libfole.pc

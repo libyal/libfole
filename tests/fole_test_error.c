@@ -27,7 +27,6 @@
 #include <stdlib.h>
 #endif
 
-#include "fole_test_libcerror.h"
 #include "fole_test_libfole.h"
 #include "fole_test_macros.h"
 #include "fole_test_unused.h"

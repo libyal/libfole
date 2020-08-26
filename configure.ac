@@ -2,7 +2,7 @@ AC_PREREQ( 2.59 )
 
 AC_INIT(
  [libfole],
- [20200709],
+ [20200826],
  [joachim.metz@gmail.com])
 
 AC_CONFIG_SRCDIR(
@@ -66,32 +66,11 @@ AX_LIBCERROR_CHECK_ENABLE
 dnl Check if libfole required headers and functions are available
 AX_LIBFOLE_CHECK_LOCAL
 
+dnl Check if DLL support is needed
+AX_LIBFOLE_CHECK_DLL_SUPPORT
+
 dnl Check if tests required headers and functions are available
 AX_TESTS_CHECK_LOCAL
-
-dnl Check if DLL support is needed
-AS_IF(
- [test "x$enable_shared" = xyes],
- [AS_CASE(
-  [$host],
-  [*cygwin* | *mingw* | *msys*],
-  [AC_DEFINE(
-   [HAVE_DLLMAIN],
-   [1],
-   [Define to 1 to enable the DllMain function.])
-  AC_SUBST(
-   [HAVE_DLLMAIN],
-   [1])
-
-  AC_SUBST(
-   [LIBFOLE_DLL_EXPORT],
-   ["-DLIBFOLE_DLL_EXPORT"])
-
-  AC_SUBST(
-   [LIBFOLE_DLL_IMPORT],
-   ["-DLIBFOLE_DLL_IMPORT"])
-  ])
- ])
 
 dnl Set additional compiler flags
 CFLAGS="$CFLAGS -Wall";

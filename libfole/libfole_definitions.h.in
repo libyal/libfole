@@ -47,7 +47,7 @@
 #define LIBFOLE_ENDIAN_BIG				_BYTE_STREAM_ENDIAN_BIG
 #define LIBFOLE_ENDIAN_LITTLE				_BYTE_STREAM_ENDIAN_LITTLE
 
-#endif
+#endif /* !defined( HAVE_LOCAL_LIBFOLE ) */
 
-#endif
+#endif /* !defined( LIBFOLE_INTERNAL_DEFINITIONS_H ) */
 

@@ -1,32 +1,8 @@
 TODO
-
-Debug
 * add description for vector types
 
-20160427
-* worked on tests
-
-20160106
-* 2016 update
-
-20150104
-* 2015 update
-
-20141030
-* worked on stand-alone version
-* updated include header
-* updated libfole.3 man page
-
-20141018
-* changes for deployment
-
-20141014
-* updated configure.ac
-
-20141012
-* worked on utility scripts
-
 20140920
+* see `git log' for more recent change log
 * changes for project site move
 
 20140808

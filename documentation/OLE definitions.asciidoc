@@ -237,8 +237,8 @@ Special value types
 | Offset | Size | Value | Description
 | 0 | 4 | | Binary string size +
 Contains the number of bytes
-| 4 | ... | | Binary string data
-| ... | 1 | 0 | Terminator (or end-of-string character)
+| 4 | ... | | Binary string data +
+[yellow-background]*Seen UTF-16 little-endian with end-of-string character*
 |===
 
 === ASCII string property value (VT_LPSTR)

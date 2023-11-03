@@ -18,9 +18,9 @@ MAINTAINERCLEANFILES = \
 	Makefile.in
 
 distclean: clean
-	/bin/rm -f libfole.h
-	/bin/rm -f libfole/definitions.h
-	/bin/rm -f libfole/features.h
-	/bin/rm -f libfole/types.h
-	/bin/rm -f Makefile
+	-rm -f libfole.h
+	-rm -f libfole/definitions.h
+	-rm -f libfole/features.h
+	-rm -f libfole/types.h
+	-rm -f Makefile
 

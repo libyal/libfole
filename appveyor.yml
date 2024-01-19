@@ -129,7 +129,7 @@ install:
     $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri https://uploader.codecov.io/latest/windows/codecov.exe -Outfile ..\codecov.exe }
 
 build_script:
-- ps: If ($env:BUILD_ENVIRONMENT -eq "msbuild" -or ($env:BUILD_ENVIRONMENT -eq "python" -and $isWindows)) {
+- ps: If ($env:BUILD_ENVIRONMENT -eq "msbuild" -or ($env:BUILD_ENVIRONMENT -eq "python-tox" -and $isWindows)) {
     .\synclibs.ps1;
     .\autogen.ps1 }
 - ps: If ($env:TARGET -eq "vs2008") {

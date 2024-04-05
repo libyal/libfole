@@ -30,7 +30,7 @@ file type.
 == License
 
 ....
-Copyright (c) 2009-2023, Joachim Metz <joachim.metz@gmail.com>.
+Copyright (c) 2009-2024, Joachim Metz <joachim.metz@gmail.com>.
 Permission is granted to copy, distribute and/or modify this document under the
 terms of the GNU Free Documentation License, Version 1.3 or any later version
 published by the Free Software Foundation; with no Invariant Sections, no
@@ -52,6 +52,8 @@ in the section entitled "GNU Free Documentation License".
 | 0.0.6 | J.B. Metz | June 2015 | Additional information regarding unknown variant types.
 | 0.0.7 | J.B. Metz | January 2018 | Additional information regarding VT_DATE.
 | 0.0.8 | J.B. Metz | January 2023 | Changes to formatting.
+| 0.0.9 | J.B. Metz | February 2024 | Additional information regarding VT_STREAM.
+| 0.0.10 | J.B. Metz | March 2024 | Additional information regarding vector of string values.
 |===
 
 :numbered:
@@ -92,9 +94,7 @@ document the property types are referred to as value types.
 | 0x0004 | VT_R4 | Floating point single precision (32-bit)
 | 0x0005 | VT_R8 | Floating point double precision (64-bit)
 | 0x0006 | VT_CY | Currency (64-bit) +
-The currency is stored as: +
-32-bit low part +
-32-bit high part +
+The currency is stored as a tuple of 2 32-bit values +
 It contains a scaled integer representation of a decimal number with four digits to the right of the decimal point. For example, a stored value of 327500 represents a currency value of 32.7500.
 | 0x0007 | VT_DATE | OLE Automation date (or Floatingtime or Application Time) (64-bit) +
 The OLE Automation date is a double precision floating point and contains the whole number part represents the number of days since December 30, 1899, and the fractional part represents the fraction of a day since midnight.
@@ -113,17 +113,14 @@ SCODE
 [yellow-background]*Not used*
 | 0x000e | VT_DECIMAL | Fixed point (128-bit)
 | 0x000f | | [yellow-background]*Unknown*
-| | |
 | 0x0010 | VT_I1 | Integer 8-bit signed
 | 0x0011 | VT_UI1 | Integer 8-bit unsigned
 | 0x0012 | VT_UI2 | Integer 16-bit unsigned
 | 0x0013 | VT_UI4 | Integer 32-bit unsigned
 | 0x0014 | VT_I8 | Integer 64-bit signed
 | 0x0015 | VT_UI8 | Integer 64-bit unsigned
-| 0x0016 | VT_INT | Integer signed +
-The size is dependent on architecture, but should be 32-bit in storage
-| 0x0017 | VT_UINT | Integer unsigned +
-The size is dependent on architecture, but should be 32-bit in storage
+| 0x0016 | VT_INT | Integer signed (32-bit)
+| 0x0017 | VT_UINT | Integer unsigned (32-bit)
 | 0x0018 | VT_VOID | Void like in the C programming language +
 [yellow-background]*Not used*
 | 0x0019 | VT_HRESULT | Standard return type +
@@ -139,7 +136,7 @@ The size is dependent on architecture, but should be 32-bit in storage
 | 0x001e | VT_LPSTR | ASCII string +
 (extended) ASCII or Single Byte Character (SBC) string with end-of-string character
 | 0x001f | VT_LPWSTR | Unicode string +
-The string uses UTF-16 little-endian (LE) without the byte order mark (BOM) terminated by a NUL-character
+The string uses UTF-16 little-endian (LE) without the byte order mark (BOM) terminated by an end-of-string character
 | | |
 | 0x0020 | | [yellow-background]*Unknown, seen to be used*
 | 0x0021 | | [yellow-background]*Unknown, seen to be used*
@@ -174,7 +171,8 @@ The FILETIME is stored as: +
 It contains the number of 100ns periods since January 1, 1601
 | 0x0041 | VT_BLOB | Binary large object +
 Size (or length) prefixed binary data
-| 0x0042 | VT_STREAM | Name of the stream follows
+| 0x0042 | VT_STREAM | Stream +
+See section: <<stream_property_type,Stream property type (VT_STREAM)>>
 | 0x0043 | VT_STORAGE | Name of the storage follows
 | 0x0044 | VT_STREAMED_OBJECT | Stream contains an object
 | 0x0045 | VT_STORED_OBJECT | Storage contains an object
@@ -204,6 +202,10 @@ Unsigned 16-bit Integer +
 | 0x009f | | [yellow-background]*Unknown, seen to be used*
 | | |
 | 0x00e8 | | [yellow-background]*Unknown, seen to be used*
+| | |
+| 0x0fff | VT_BSTR_BLOB |
+| | |
+| 0xffff | VT_ILLEGAL |
 |===
 
 The 4 MSB of the value type are used as flags:
@@ -211,7 +213,7 @@ The 4 MSB of the value type are used as flags:
 [cols="1,1,5",options="header"]
 |===
 | Value type flags | Identifier | Description
-| 0x1000 | VT_VECTOR | simple counted array
+| 0x1000 | VT_VECTOR | Vector (or array)
 | 0x2000 | VT_ARRAY | SAFEARRAY * (pointer)
 | 0x4000 | VT_BYREF | Void * (pointer) +
 for local use
@@ -261,6 +263,16 @@ ASCII with end-of-string character
 UTF-16 little-endian with end-of-string character
 |===
 
+=== Binary data property type (VT_BLOB)
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 4 | | Binary data size +
+Contains the number of bytes
+| 4 | ... | | Binary data
+|===
+
 === Clipboard format
 
 [yellow-background]*See: http://poi.apache.org/hpsf/thumbnails.html*
@@ -285,17 +297,57 @@ UTF-16 little-endian with end-of-string character
 | 0xffffffff | CFTAG_WINDOWS | Windows clipboard format
 |===
 
-=== Multi value
-
-==== VT_LPSTR multi-value
+=== [[stream_property_type]]Stream property type (VT_STREAM)
 
 [cols="1,1,1,5",options="header"]
 |===
 | Offset | Size | Value | Description
+| 0 | 4 | | Stream name string size +
+Contains the number of bytes
+| 4 | ... | | Stream name string +
+UTF-16 little-endian with end-of-string character
+| ... | 2 | | [yellow-background]*Unknown (alignment padding?)*
+| ... | 4 | | Stream data size +
+Contains the number of bytes
+| ... | ... | | Stream data +
+UTF-16 little-endian with end-of-string character
+|===
+
+=== Multi value
+
+==== Vector (VT_VECTOR) of integer values
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+4+| _VectorHeader_
 | 0 | 4 | | Number of values
-| 4 | ... | | Array of value sizes +
-Each value size is a 32-bit value
-| ... | ... | | Array of value data
+4+|
+| 4 | ... | | Array of integer values +
+The size of the integer is dependent on the lower 24-bit of the property value type
+|===
+
+==== Vector (VT_VECTOR) of string values (VT_BSTR, VT_LPSTR, VT_LPWSTR)
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+4+| _VectorHeader_
+| 0 | 4 | | Number of values
+4+|
+| 4 | ... | | Array of vector string values
+|===
+
+===== Vector string value
+
+[cols="1,1,1,5",options="header"]
+|===
+| Offset | Size | Value | Description
+| 0 | 4 | | Number of characters +
+The size of the string is dependent on the lower 24-bit of the property value type
+| ... | ... | | String +
+The encoding of the string is dependent on the lower 24-bit of the property value type
+| ... | ... | | [yellow-background]*Unknown (32-bit alignment padding?)*
 |===
 
 ==== VT_VARIANT multi-value
@@ -364,7 +416,7 @@ clSize.
 
 === VT_LPSTR multi value
 
-OLECF vresion 3.63 normal VT_LPSTR multi value:
+OLECF version 3.63 normal VT_LPSTR multi value:
 ....
 00995960              1e 10 00 00  4d 00 00 00 06 00 00 00  |    ....M.......|
 00995970  41 72 69 61 6c 00 10 00  00 00 54 69 6d 65 73 20  |Arial.....Times |
@@ -397,37 +449,23 @@ libolecf_property_value_read_data: number of values                     : 122
 [appendix]
 == References
 
-`[APACHE-POI]`
-
 [cols="1,5",options="header"]
 |===
 | Title: | Apache POI project
-| URL: | http://poi.apache.org/
+| URL: | https://poi.apache.org/
 |===
-
-`[MSDN]`
-
-[cols="1,5",options="header"]
-|===
-| Title: | Microsoft Developer Network
-| URL: | http://msdn.microsoft.com/
-|===
-
-`[MS-OLEPS]`
 
 [cols="1,5",options="header"]
 |===
 | Title: | `[MS-OLEPS]` Object Linking and Embedding (OLE) Property Set Data Structures
-| URL: | http://msdn.microsoft.com/
+| URL: | https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-oleps/bf7aeae8-c47a-4939-9f45-700158dac3bc
 | Date: | August 12, 2009
 |===
-
-`[MSDN-BSTR]`
 
 [cols="1,5",options="header"]
 |===
 | Title: | BSTR Data Type
-| URL: | http://msdn.microsoft.com/en-us/library/ms221069.aspx
+| URL: | https://learn.microsoft.com/en-us/previous-versions/windows/desktop/automat/bstr
 |===
 
 [appendix]

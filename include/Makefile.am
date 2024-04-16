@@ -14,13 +14,11 @@ EXTRA_DIST = \
 	libfole/features.h.in \
 	libfole/types.h.in
 
-MAINTAINERCLEANFILES = \
+DISTCLEANFILES = \
+	libfole.h \
+	libfole/definitions.h \
+	libfole/features.h \
+	libfole/types.h \
+	Makefile \
 	Makefile.in
-
-distclean: clean
-	-rm -f libfole.h
-	-rm -f libfole/definitions.h
-	-rm -f libfole/features.h
-	-rm -f libfole/types.h
-	-rm -f Makefile
 

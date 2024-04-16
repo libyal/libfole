@@ -1,6 +1,6 @@
 AM_CPPFLAGS = \
-	-I$(top_srcdir)/include \
-	-I$(top_srcdir)/common \
+	-I../include -I$(top_srcdir)/include \
+	-I../common -I$(top_srcdir)/common \
 	@LIBCERROR_CPPFLAGS@ \
 	@LIBFOLE_DLL_EXPORT@
 
@@ -27,13 +27,11 @@ EXTRA_DIST = \
 	libfole.rc \
 	libfole.rc.in
 
-MAINTAINERCLEANFILES = \
+DISTCLEANFILES = \
+	libfole_definitions.h \
+	libfole.rc \
+	Makefile \
 	Makefile.in
-
-distclean: clean
-	-rm -f libfole_definitions.h
-	-rm -f libfole.rc
-	-rm -f Makefile
 
 sources-local: $(BUILT_SOURCES)
 

@@ -1,6 +1,6 @@
 dnl Checks for required headers and functions
 dnl
-dnl Version: 20190308
+dnl Version: 20240413
 
 dnl Function to detect if libfole dependencies are available
 AC_DEFUN([AX_LIBFOLE_CHECK_LOCAL],

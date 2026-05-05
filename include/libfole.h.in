@@ -1,7 +1,7 @@
 /*
  * Library to support the Object Linking and Embedding (OLE) data types
  *
- * Copyright (C) 2008-2025, Joachim Metz <joachim.metz@gmail.com>
+ * Copyright (C) 2008-2026, Joachim Metz <joachim.metz@gmail.com>
  *
  * Refer to AUTHORS for acknowledgements.
  *

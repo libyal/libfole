@@ -24,7 +24,7 @@
 
 #include "libfole_value_type.h"
 
-libfole_value_type_t libfole_value_types[ ] = {
+static libfole_value_type_t libfole_value_types[ ] = {
 	{ 0x0000, "VT_EMPTY",			"Empty" },
 	{ 0x0001, "VT_NULL",			"NULL" },
 	{ 0x0002, "VT_I2",			"Integer 16-bit signed" },

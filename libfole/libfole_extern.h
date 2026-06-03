@@ -24,6 +24,19 @@
 
 #include <common.h>
 
+#if !defined( __CYGWIN__ ) && !defined( _WIN32 ) && defined( __has_attribute )
+#if __has_attribute( visibility )
+#define LIBFOLE_INTERNAL	__attribute__((visibility("hidden"))) extern
+
+#else
+#define LIBFOLE_INTERNAL	extern
+
+#endif /* __has_attribute( visibility ) */
+#else
+#define LIBFOLE_INTERNAL	extern
+
+#endif /* !defined( __CYGWIN__ ) && !defined( _WIN32 ) && defined( __has_attribute ) */
+
 /* Define HAVE_LOCAL_LIBFOLE for local use of libfole
  */
 #if !defined( HAVE_LOCAL_LIBFOLE )
@@ -32,7 +45,7 @@
 
 #else
 #define LIBFOLE_EXTERN		/* extern */
-#define LIBFOLE_EXTERN_VARIABLE	extern
+#define LIBFOLE_EXTERN_VARIABLE	LIBFOLE_INTERNAL
 
 #endif /* !defined( HAVE_LOCAL_LIBFOLE ) */
 

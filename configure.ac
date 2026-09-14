@@ -2,7 +2,7 @@ AC_PREREQ([2.71])
 
 AC_INIT(
   [libfole],
-  [20260724],
+  [20260914],
   [https://github.com/libyal/libfole/issues])
 
 AC_CONFIG_SRCDIR(
